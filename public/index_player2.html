@@ -82,7 +82,7 @@ socket.on('syncer',function(data)
 		var aud_time=elem[i].currentTime;
 		if(((aud_time-data)>=0.1)||((data-aud_time)>=0.1))
 			{
-				elem[i].currentTime=data;
+				elem[i].currentTime=data+0.2;
 			}
 	}
 });
