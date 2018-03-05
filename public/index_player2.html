@@ -80,7 +80,7 @@ socket.on('syncer',function(data)
 	for(var i=0;i<elem.length;i++)
 	{
 		var aud_time=elem[i].currentTime;
-		if(((aud_time-data)>=0.01)||((data-aud_time)>=0.01))
+		if(((aud_time-data)>=0.1)||((data-aud_time)>=0.1))
 			{
 				elem[i].currentTime=data;
 			}
