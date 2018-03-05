@@ -1,0 +1,7 @@
+JS files for index.html are in assets/js
+JS files for index_form.html are in js
+JS files for index_player.html are in js
+
+CSS files for index.html are in assets/css
+CSS files for index_form.html are in css
+CSS files for index_player.html are in css

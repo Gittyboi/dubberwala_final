@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Dubberwala - Audio Player</title>
+  <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+		
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	<link rel="stylesheet" href="style_play_new.css">	
+	<style type="text/css">
+		.audio-container {
+    display: flex;
+    flex-flow: column;
+    width: 98vw;
+}
+.audio-container>div.audio{
+	margin: 2rem auto;
+}
+.audio-container>div.audio>p{
+	font-family: sans-serif;
+	color: #fff;
+	font-size: 1.5rem;
+	font-weight: 800;
+}
+	</style>
+		
+
+ <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+
+    
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+      
+
+        <link rel="stylesheet" href="/assets/css/fonticons.css">
+        <link rel="stylesheet" href="/assets/fonts/stylesheet.css">
+        <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="/assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="/assets/css/style2.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="/assets/css/responsive.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+ 
+
+
+  
+</head>
+
+<body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var socket = io();
+
+socket.on('listener123',function(data)
+{
+	var elem = document.getElementsByClassName("audio_file");
+	for(var i=0 ; i<elem.length ; i++)
+	{
+		elem[i].currentTime = data;
+	}
+});
+
+socket.on('syncer',function(data)
+{
+	console.log(data);
+	var elem = document.getElementsByClassName("audio_file");
+	for(var i=0;i<elem.length;i++)
+	{
+		var aud_time=elem[i].currentTime;
+		if(((aud_time-data)>=0.01)||((data-aud_time)>=0.01))
+			{
+				elem[i].currentTime=data;
+			}
+	}
+});
+
+
+
+var prevstring =["","",""];
+var lang_string =["","",""];
+socket.on('source_data', function(data)
+	{
+		//var elem = document.getElementById("aud");
+		var elem = document.getElementsByClassName("audio_file");
+    //lang_string[0] = "https://docs.google.com/uc?export=download&id="+data['eng'];
+    lang_string[0] = "https://docs.google.com/uc?export=download&id="+data['eng'];
+    lang_string[1] = "https://docs.google.com/uc?export=download&id="+data['hin'];
+    lang_string[2] = "https://docs.google.com/uc?export=download&id="+data['mar'];
+
+    console.log(data);
+
+    for(var i=0;i<lang_string.length;i++)
+    if(prevstring[i]!=lang_string[i])
+    {
+    	console.log("hi")
+    	console.log(elem[i].src);
+    	elem[i].src = lang_string[i];
+    	console.log(elem.src);
+    	prevstring[i] = lang_string[i];	
+    }
+	});
+
+
+
+socket.on('current_playing_state', function(data){console.log(data); 
+var elem = document.getElementsByClassName("audio_file");
+for(var i=0;i<elem.length;i++)
+{
+
+	if(data)
+	{
+		if(!elem[i].paused)
+		elem[i].pause();
+	}
+	else
+	{
+		elem[i].play();
+	}
+}
+})
+ </script>
+
+
+<section id="hello" class="home">
+            <div class="overlay">
+                <div class="container">
+                    <div class="row">
+                        <h1>Audio Player</h1>
+						
+                        <div class="audio-container">
+							<!--audio-->
+							<div class="audio">
+								<p>English</p>
+								<audio controls="controls" muted  class="audio_file" src="https://docs.google.com/uc?export=download&id=1CBJwRUdKR2muwtJah9WPxZNAi8esT_vj">
+							</audio>
+							</div>
+							<div class="audio">
+								<p>Hindi</p>
+								<audio controls="controls" muted  class="audio_file" src="https://docs.google.com/uc?export=download&id=1CBJwRUdKR2muwtJah9WPxZNAi8esT_vj">
+							</audio>
+							</div>
+							<div class="audio">
+								<p>Marathi</p>
+								<audio controls="controls" muted  class="audio_file" src="https://docs.google.com/uc?export=download&id=1CBJwRUdKR2muwtJah9WPxZNAi8esT_vj">
+							</audio>
+							</div>
+						</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Dubberwala - Enter Audio Sources</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="assets/css/fonticons.css">
+        <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+<script>
+      var socket = io();
+      
+
+$(document).ready(function(){
+	$('#form').submit(function(){
+        socket.emit('current_source', 
+        { 
+    vidsrc: $('#vidsrc').val(),
+    eng: $('#eng').val(),
+	hin: $('#hin').val(),
+	mar: $('#mar').val()	
+	})
+
+        alert("You have successfully updated the video/audio sources!");
+        // console.log($('#vidsrc').val())
+        // console.log($('#eng').val())
+        return false;
+      });
+});
+      
+
+
+    </script>
+
+
+
+
+	<div class="container-contact100">
+
+		<div class="wrap-contact100">
+											<!--FORM-->
+											
+													<form class="contact100-form validate-form" id="form" action=""> 
+														
+														<p align="center">Enter links to audio sources</p><hr>
+
+														<div class="wrap-input100 validate-input" data-validate="Source 1">
+															<input class="input100" type="text" name="name" placeholder="link to source 1" id="vidsrc">
+															<span class="focus-input100"></span>
+														</div>
+														
+														<div class="wrap-input100 validate-input" data-validate="Source 2">
+															<input class="input100" type="text" name="name" placeholder="link to source 2" id="eng">
+															<span class="focus-input100"></span>
+														</div>
+														
+														<div class="wrap-input100 validate-input" data-validate="Source 3">
+															<input class="input100" type="text" name="name" placeholder="link to source 3" id="hin">
+															<span class="focus-input100"></span>
+														</div>
+														
+														<div class="wrap-input100 validate-input" data-validate="Source 4">
+															<input class="input100" type="text" name="name" placeholder="link to source 4" id="mar">
+															<span class="focus-input100"></span>
+														</div>
+														<hr>
+														<div class="col-sm-4"> </div>	
+		
+															<button class="contact100-form-btn" type="submit">
+																	<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+																	Submit
+															</button>
+														
+													</form>
+											</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/form_main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>

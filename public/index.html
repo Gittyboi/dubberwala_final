@@ -1,0 +1,401 @@
+﻿<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Home - Dubberwala</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+ <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+
+    
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+      
+
+        <link rel="stylesheet" href="assets/css/fonticons.css">
+        <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="assets/css/responsive.css" />
+
+        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body data-spy="scroll" data-target=".navbar-collapse">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header id="main_menu" class="header navbar-fixed-top">            
+            <div class="main_menu_bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="nave_menu">
+                            <nav class="navbar navbar-default" id="navmenu">
+                                <div class="container-fluid">
+                                    <!-- Brand and toggle get grouped for better mobile display -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <a class="navbar-brand" href="#hello">
+                                           
+                                        </a>
+                                    </div>
+
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav navbar-right">
+										                      	<li><a href="index.html#hello">Introduction</a></li>
+                                            <li><a href="127.0.0.1:3000/form">Sources</a></li>
+											
+                                            <li><a href="index.html#docum">Documentation</a></li>
+                                            
+                                        </ul>    
+                                    </div>
+
+                                </div>
+                            </nav>
+                        </div>	
+                    </div>
+
+                </div>
+
+            </div>
+        </header> <!--End of header -->
+
+
+
+
+
+        <section id="hello" class="home">
+            <div class="overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm- ">
+                            
+                                <div class="single_home_slider">
+                                    <div class="main_home wow fadeInUp" data-wow-duration="700ms">
+                                        <h1>Dubberwala</h1>
+                                        <p class="subtitle">A personalized audio experience.</p>
+										
+										
+
+                                        <div class="home_btn" >
+                                            <a href="index.html#player" class="btn btn-md">Player</a>
+                                        </div> 
+										
+										<div class="home_btn">
+                                            <a href="https://127.0.0.1:3000/form" class="btn btn-md">Sources</a>
+                                        </div>
+										
+										<div class="home_btn">
+                                            <a href="index.html#docum" class="btn btn-md">Documentation</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+		
+
+
+        <section id="player" class="service">
+		 <div class="container">
+                <div class="row">
+                    <div class="main_service_area sections"> 
+                        <div class="col-sm-6">
+                            <div class="signle_service_left">
+                                <h2>Player</h2>
+								<p> <h3 class="h3-responsive">Watch your video.</h3></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            
+							<video width="560" height="380" muted controls id = "vid" class="center">
+							  <source src="https://docs.google.com/uc?export=download&id=1fXMJg7hdWzLBQyTwELzZwYfDADRI5k6S" type="video/mp4">
+							</video>
+							
+							<!--<div class='music-card playing'>
+  
+							<div class='image'></div>
+								  
+								  <div class='wave'></div>
+								  <div class='wave'></div>
+								  <div class='wave'></div>
+								  
+								  <div class='info'>
+									<h2 class='title'>  SOURCE   </h2>
+									<div class='artist'>Now Connected</div>
+								  </div>
+								  
+								  <i class="fa fa-pause trigger" aria-hidden="false">  </i>
+								  <i class="fa fa-play trigger" aria-hidden="false"></i>
+							</div> 	 -->					  
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+								
+		
+		<section id="docum" class="service">
+            <div class="container">
+                <div class="row">
+                    <div class="main_service_area sections"> 
+                        <div class="col-sm-4">
+                            <div class="signle_service_left">
+                                <h2>Doc
+								umen
+								tation</h2>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                              
+							<!-- BLAH BLAH BLAH -->  
+							<p align="right" class="subtitle"><h3 class="h3-responsive wow fadeIn">Have you ever wanted to watch a movie - but wished you could overcome the language barrier?<br> Or what if a bunch of diverse, multilingual people wish to watch different dubbed versions of the same movie?<br>
+							<br>To sync multiple audio sources with a video source playing on a host machine is difficult and tedious to do manually. But Dubberwala is a unique app that provides this functionality and seamlessly syncs different audio sources with one another as well as with the video source, providing a truly personalised audio experience.
+							<br><br>Say goodbye to arguments over which version to watch - now peacefully play separate audios for the same video, completely personalised and without distractions.
+							</h3>
+							</p>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+		<div class="col-sm-3">
+		
+		
+		</div>		
+		<div class="streak">
+			<div class="flex-center">
+				<ul>
+					<li><h3 class="h3-responsive wow fadeIn"><i class="fa fa-quote-left" aria-hidden="true"></i> If music be the food of love, play on. <i class="fa fa-quote-right" aria-hidden="true"></i></h3></li>
+					<div class="col-sm-7">  </div>
+					<li><h4 class="font-italic wow fadeIn" data-wow-delay="0.2s">~ William Shakespeare</h4></li>
+				</ul>
+			</div>
+		</div>
+
+
+        <!-- START SCROLL TO TOP  -->
+
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>
+		<!-- <script>
+var socket = io('http://localhost:3000');
+ var curr=0;
+  var prev = -1;
+  var elem = document.getElementById("vid");
+  setInterval(function(){
+        curr = elem.currentTime;
+        if(elem)
+        if(prev==-1&&curr==0)
+        {
+          //do nothing
+          console.log('case 1');
+          console.log(curr);
+          console.log(prev);
+        }
+        else if((prev+1)<=curr||curr<=(prev+1))
+        {
+          console.log('case 2');
+           console.log(curr);
+          console.log(prev);
+          prev=curr;
+          socket.emit('video_control',curr);
+          console.log("hello");
+        }
+        else
+        {
+          console.log('case 3');
+           console.log(curr);
+          console.log(prev);
+          prev=curr;
+        }
+   }, 1000);
+
+   //socket.emit('video_control',curr);
+
+socket.on('listener123',function(data){
+  var elem = document.getElementsByClassName("aud");
+for(var i=0; i<elem.length; i++) {
+     elem[i].currentTime=data;
+}
+
+
+//  elem.currentTime=data;
+
+//console.log(data);
+});
+
+
+
+</script> -->
+
+<script>
+//var socket = io('http://192.168.31.183:3000');
+//var add = 'http://'+location.host;
+//var socket = io(add);
+var socket = io();
+//var socket = io('http://172.30.5.88:3000');
+ var curr=0;
+  var prev = -1;
+  var flag = 0;
+  var elem = document.getElementById("vid");
+  var prevstring="https://docs.google.com/uc?export=download&id=1fXMJg7hdWzLBQyTwELzZwYfDADRI5k6S";
+socket.on('source_data', function(data){
+
+    var vid_string = "https://docs.google.com/uc?export=download&id="+data['vidsrc'];
+    //console.log("hello123");
+   // console.log(vid_string);
+
+    if(prevstring!=vid_string)
+    {
+        prevstring=vid_string;
+        elem.src = vid_string;
+    }
+
+})
+
+  setInterval(function(){
+        curr = elem.currentTime;
+        if(elem)
+        if(prev==-1&&curr==0)
+        {
+          //do nothing
+          //console.log('case 1');
+          //console.log(curr);
+          //console.log(prev);
+        }
+        else if(((prev+0.4)<=curr&&(prev<curr))||(curr<=(prev+0.4)&&curr<prev))
+        {
+          //console.log('case 2');
+           //console.log(curr);
+          //console.log(prev);
+          prev=curr;
+          socket.emit('video_control',curr);
+          //console.log("hello");
+        }
+        else
+        {
+          //console.log('case 3');
+           //console.log(curr);
+          //console.log(prev);
+          prev=curr;
+        }
+
+        if(elem.paused)
+        {
+            flag=1;
+            socket.emit('pause/play',1);
+        }
+        else
+        {
+            if(flag==1)
+            {
+                flag=0;
+                socket.emit('pause/play',0);
+            }
+        }
+
+   }, 100);
+
+
+setInterval(function(){
+socket.emit('sync_time',elem.currentTime);
+},3000);
+
+
+
+   //socket.emit('video_control',curr);
+
+//socket.on('listener123',function(data){
+  //var elem = document.getElementsByClassName("aud");
+//for(var i=0; i<elem.length; i++) {
+  //   elem[i].currentTime=data;
+//}
+
+
+//  elem.currentTime=data;
+
+//console.log(data);
+//});
+
+
+
+</script>
+
+
+<!-- FOR FORM -->
+
+<!-- <script src="js/form_main.js"></script> -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+ <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js'></script>
+
+    <!-- <script src="js/index_play.js"></script>
+	<script src="js/index_aud.js"></script> -->
+		
+        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+
+        <script src="assets/js/jquery.easypiechart.min.js"></script>
+        <script src="assets/js/jquery.mixitup.min.js"></script>
+        <script src="assets/js/jquery.easing.1.3.js"></script>
+
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
+		 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
+
+
+    </body>
+</html>

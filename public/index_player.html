@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Dubberwala - Audio Player</title>
+  <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Home - Dubberwala</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+ <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+
+    
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+      
+
+        <link rel="stylesheet" href="assets/css/fonticons.css">
+        <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="assets/css/style2.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="assets/css/responsive.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+ 
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+      <link rel="stylesheet" href="css/player_style.css">
+	  <link rel="stylesheet" type="text/css" href="css/util.css">
+
+  
+</head>
+
+<body>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="js/player_index.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+//var socket = io('http://172.30.5.88:3000');
+
+//var socket = io(add);
+var socket = io();
+
+
+
+socket.on('listener123',function(data)
+{
+var elem = document.getElementById("playbar");
+elem.currentTime = data;
+});
+
+socket.on('syncer',function(data)
+{
+	console.log(data);
+	var elem = document.getElementById("playbar");
+var aud_time=elem.currentTime;
+if(((aud_time-data)>=0.01)||((data-aud_time)>=0.01))
+	{
+		elem.currentTime=data;
+	}
+});
+
+
+
+var prevstring="";
+var prevstring2="";
+var prevstring3="";
+var prevstring4="";
+socket.on('source_data', function(data)
+	{
+		var elem = document.getElementById("eng");
+    var eng_string = "https://docs.google.com/uc?export=download&id="+data['eng'];
+    if(prevstring!=eng_string)
+    {
+
+    	elem.href = eng_string;
+    	console.log(elem.href);
+    	prevstring = eng_string;	
+    }
+
+
+    var elem2 = document.getElementById("hin");
+    var hin_string = "https://docs.google.com/uc?export=download&id="+data['hin'];
+    if(prevstring2!=hin_string)
+    {
+
+    	elem2.href = hin_string;
+    	console.log(elem2.href);
+    	prevstring2 = hin_string;	
+    }
+
+    var elem3 = document.getElementById("mar");
+    var mar_string = "https://docs.google.com/uc?export=download&id="+data['mar'];
+    if(prevstring3!=mar_string)
+    {
+
+    	elem3.href = mar_string;
+    	console.log(elem3.href);
+    	prevstring3 = mar_string;	
+    }
+
+
+var elem4 = document.getElementById("french");
+    var french_string = "https://docs.google.com/uc?export=download&id="+data['eng'];
+    if(prevstring4!=french_string)
+    {
+
+    	elem4.href = french_string;
+    	console.log(elem4.href);
+    	prevstring4 = french_string;	
+    }
+
+
+
+	});
+
+
+
+socket.on('current_playing_state', function(data){console.log(data); 
+    
+if(data)
+{
+    console.log("data = 1 so calling pause()");
+	pause();
+}
+else
+{
+    console.log("calling play()");
+	play();
+}
+
+})
+ </script>
+ <script src="/socket.io/socket.io.js"></script>
+
+
+
+<section id="hello" class="home">
+            <div class="overlay">
+                <div class="container">
+                    <div class="row">
+                        <h1>Audio Player</h1>
+						<div class="table">
+						
+						  <div class="table-cell">
+						  
+							<div id="player">
+							<div id="main">
+							  <div>
+								<div class="playback_controls">
+								  <h2 id="title">VIDEO NAME</h2>
+								  <h3 id="artist">language playing</h3>
+								  <div class="time-holder">
+									<div class="slider">
+									  <div class="fill"></div>
+									</div>
+								  </div>
+								  <div>
+								  <i class="fa fa-bars menu"></i>
+								  <div class="buttons">
+									<!-- <i class="fa fa-backward" id="back"></i> -->
+									<i class="fa fa-play loading" id="playpause"></i>
+									<!-- <i class="fa fa-forward" id="next"></i> -->
+								  </div>
+								</div>
+								</div>
+								<audio id="playbar" controls></audio>
+							  </div>
+							</div>
+							<ol id="playlist">
+							  <li class="playing"><a class="track" href="https://docs.google.com/uc?export=download&id=1CBJwRUdKR2muwtJah9WPxZNAi8esT_vj" id="eng">English</a></li>
+							  <li><a class="track" href="https://docs.google.com/uc?export=download&id=1CBJwRUdKR2muwtJah9WPxZNAi8esT_vj" id="hin">Hindi</a></li>
+							  <li><a class="track" href="https://docs.google.com/uc?export=download&id=1CBJwRUdKR2muwtJah9WPxZNAi8esT_vj" id = "mar">Marathi</a></li>
+							  <li><a class="track" href="https://docs.google.com/uc?export=download&id=1CBJwRUdKR2muwtJah9WPxZNAi8esT_vj" id="french">French</a></li>
+							  </div>
+							  </div>
+							</div>
+												
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js'></script>
+
+    
+
+</body>
+</html>
