@@ -107,6 +107,8 @@ socket.on('source_data', function(data)
     {
     	console.log("hi")
     	console.log(elem[i].src);
+    	console.log("prevstring is "+i+" "+prevstring[i])
+    	console.log("lang_string is"+i+" "+lang_string[i])
     	elem[i].src = lang_string[i];
     	console.log(elem.src);
     	prevstring[i] = lang_string[i];	
